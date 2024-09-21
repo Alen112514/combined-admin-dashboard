@@ -1,0 +1,72 @@
+{% extends 'web_base.html' %}
+{% load static %}
+
+{% block content_page %}
+<div class="container-fluid">
+    <form method="POST" action="{% url 'product_update' product_id=correct.product_id %}">
+        {% csrf_token %}
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 my-3 text-gray-800">Update Product</h1>
+        </div>
+
+        <div class="row">
+
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="form-group col-lg-4">
+                                <label class="text-dark">Product Name</label>
+                                <input required type="text" class="form-control" value="{{correct.product_name}}" name="product_name" placeholder="Enter Product Name">
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <label class="text-dark">Product Price</label>
+                                <input required type="text" class="form-control" value="{{correct.product_price}}" name="product_price" placeholder="Enter HSN Code">
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <label class="text-dark">HSN Code</label>
+                                <input required type="text" class="form-control" value="{{correct.hsn_code}}" name="hsn_code" placeholder="Enter HSN Code">
+                            </div>
+                            
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-lg-4">
+                                <label class="text-dark">Manufacture Date</label>
+                                <input required type="date" class="form-control" value="{{correct.manufacture_date}}" name="manufacture_date">
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <label class="text-dark">Expiry Date</label>
+                                <input required type="date" class="form-control" value="{{correct.expiry_date}}" name="expiry_date">
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <label class="text-dark">Created Date</label>
+                                <input required type="datetime-local" class="form-control" value="{{correct.created_datetime}}" name="created_datetime">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-lg-4">
+                                <label class="text-dark">Updated Date</label>
+                                <input required type="datetime-local" class="form-control" value="{{correct.updated_datetime}}" name="updated_datetime">
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <label class="text-dark">Created By</label>
+                                <select name="created_by" class="form-control">
+                                    {% for company  in  companies %}
+                                        <option value="{{company.user_id}}">{{company.user_id}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 my-3 text-gray-800"></h1>
+            <button type="submit" class="btn btn-primary my-3">Update Product</button>
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}

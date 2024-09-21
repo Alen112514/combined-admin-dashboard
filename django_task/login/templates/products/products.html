@@ -1,0 +1,66 @@
+{% extends 'web_base.html' %}
+{% load static %}
+
+{% block content_page %}
+<style>
+    .bigger-icon {
+        font-size: 22px; 
+    }
+</style>
+<div class="container-fluid">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Products Page</h1>
+        <a href="{% url 'product_create' %}" class="btn btn-primary my-3">Add Product</a>
+    </div>
+
+    <div class="row">
+
+        <div class="col-12">
+            <table class="table table-bordere-less table-responsive-sm text-sm-start">
+                <thead>
+                    <tr class="table-primary text-dark">
+                        <th>Sr. No.</th>
+                        <th>User Name</th>
+                        <th>Product Id</th>
+                        <th>Product Name</th>
+                        <th>Product Price</th>
+                        <th>HSN Code</th>
+                        {% comment %} <th>Manufacture Date</th> {% endcomment %}
+                        {% comment %} <th>Expiry Date</th> {% endcomment %}
+                        <th>Created Date</th>
+                        {% comment %} <th>Updated Date</th> {% endcomment %}
+                        <th>Created By</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in products %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{ i.created_by.user_name }}</td>
+                        <td>{{i.product_id}}</td>
+                        <td>{{i.product_name}}</td>
+                        <td>{{i.product_price}}</td>
+                        <td>{{i.hsn_code}}</td>
+                        {% comment %} <td>{{i.manufacture_date}}</td> {% endcomment %}
+                        {% comment %} <td>{{i.expiry_date}}</td> {% endcomment %}
+                        <td>{{i.created_datetime}}</td>
+                        {% comment %} <td>{{i.updated_datetime}}</td> {% endcomment %}
+                        <td>{{i.created_by.user_email}}</td>
+
+                        <td>
+                            <a href="/product_update/{{i.product_id}}/" class="bigger-icon"><i class='bx bxs-folder-plus bigger-icon'></i></a>
+                            
+
+                            <a href="/delete/{{i.product_id}}/" class="bigger-icon"><i class='bx bxs-trash bigger-icon'></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

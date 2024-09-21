@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="card my-5 mx-auto shadow-lg" style="max-width:100%; width:60%;">
+    <div class="card-title">
+        <h2 class="text-center text-success my-3">Register page<h2>
+        <div class="card-body">
+            <form action="/register/" method="POST">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="form-group col-lg-4">
+                        <label class="text-dark">Name</label>
+                        <input required type="text" class="form-control" name="user_name" placeholder="Enter Name">
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <label class="text-dark">Email</label>
+                        <input required type="text" class="form-control" name="user_email" placeholder="Enter Email">
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <label class="text-dark">Mobile</label>
+                        <input required type="text" class="form-control" name="user_phone" placeholder="Enter Mobile Number">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-lg-4">
+                        <label class="text-dark">Date of Birth</label>
+                        <input required type="date" class="form-control" name="user_dob">
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <label class="text-dark">Gender</label>
+                        <input required type="text" class="form-control" name="gender" placeholder="Enter Your Gender">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group col-lg-4">
+                        <label class="text-dark">Address</label>
+                        <input required type="text" class="form-control" name="address" placeholder="Enter Address">
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <label class="text-dark">City</label>
+                        <input required type="text" class="form-control" name="city" placeholder="Enter City">
+                    </div>
+                   
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-lg-4">
+                        <label class="text-dark">State</label>
+                        <input required type="text" class="form-control" name="state" placeholder="Enter State">
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <label class="text-dark">Country</label>
+                        <input required type="text" class="form-control" name="country" placeholder="Enter Country">
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <label class="text-dark">PIN code</label>
+                        <input required type="text" class="form-control" name="pin_code" placeholder="Enter PIN code">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary mx-auto mt-3 form-control">Register</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,94 @@
+{% extends 'web_base.html' %}
+{% load static %}
+
+{% block content_page %}
+
+
+<div class="container-fluid">
+    <form method="POST" action="/update/{{Data_up.user_id}}/">
+        {% csrf_token %}
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 my-3 text-gray-800">Update Profile</h1>
+            <button type="submit" class="btn btn-primary my-3">Update Profile</button>
+        </div>
+
+        <div class="row">
+
+            <div class="col-12 mt-5">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="form-group col-lg-4">
+                                <label class="text-dark">Name</label>
+                                <input required type="text" class="form-control" name="user_name" value="{{Data_up.user_name}}"> 
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <label class="text-dark">Email</label>
+                                <input required type="text" class="form-control" name="user_email" value="{{Data_up.user_email}}">
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <label class="text-dark">Mobile</label>
+                                <input required type="text" class="form-control" name="user_phone" value="{{Data_up.user_phone}}">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-lg-4">
+                                <label class="text-dark">Date of Birth</label>
+                                <input required type="date" class="form-control" name="user_dob" value="{{Data_up.user_dob}}">
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <label class="text-dark">Gender</label>
+                                <input required type="text" class="form-control" name="gender" value="{{Data_up.gender}}">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-lg-4">
+                                <label class="text-dark">Aadhar Card</label>
+                                <input required type="text" class="form-control" name="aadhar" value="{{Data_up.aadhar}}">
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <label class="text-dark">Pan Card</label>
+                                <input required type="text" class="form-control" name="pan" value="{{Data_up.pan}}">
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <label class="text-dark">Marital Status</label>
+                                <input required type="text" class="form-control" name="marital_status" value="{{Data_up.marital_status}}">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-lg-4">
+                                <label class="text-dark">Address</label>
+                                <input required type="text" class="form-control" name="address" value="{{Data_up.address}}">
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <label class="text-dark">City</label>
+                                <input required type="text" class="form-control" name="city" value="{{Data_up.city}}">
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <label class="text-dark">District</label>
+                                <input required type="text" class="form-control" name="district" value="{{Data_up.district}}">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-lg-4">
+                                <label class="text-dark">State</label>
+                                <input required type="text" class="form-control" name="state" value="{{Data_up.state}}">
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <label class="text-dark">Country</label>
+                                <input required type="text" class="form-control" name="country" value="{{Data_up.country}}">
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <label class="text-dark">PIN code</label>
+                                <input required type="text" class="form-control" name="pin_code" value="{{Data_up.pin_code}}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}
