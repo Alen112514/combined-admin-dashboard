@@ -36,7 +36,7 @@ This is a full-stack web application built using **Django** (REST API + Auth) an
 ### Backend:
 - Django
 - Django REST Framework (partially scaffolded)
-- SQLite (default DB)
+- MySQL
 
 ### Frontend:
 - React 18
